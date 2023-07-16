@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Pagina from '../../components/Pagina'
-import apiDeputados from "../ApiConnect/axiosAPIDeputados";
+import ApiDeputados from "../../ApiConnect/axiosAPIDeputados";
 import ItemGaleria from "@/components/ItemGaleria";
 import { Button, Card, Modal } from 'react-bootstrap';
 
@@ -65,7 +65,7 @@ export default Index
 
 
 export async function getServerSideProps(context) {
-    const resultadoDeputados = await apiDeputados.get('/deputados')
+    const resultadoDeputados = await ApiDeputados.get('/deputados')
     const Deputados = resultadoDeputados.data.dados
 
     return {

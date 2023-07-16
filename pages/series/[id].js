@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link"
 import React, { useState } from "react"
 import Pagina from "../../components/Pagina"
-import apiFilmes from "../ApiConnect/axiosAPIFilms"
+import ApiFIlmes from "../../ApiConnect/axiosAPIFilms"
 import { Accordion, Button, Card, Col, Modal, Row, Table } from "react-bootstrap";
 import { dateFormatter } from "../../functions/functions";
 
@@ -14,7 +14,7 @@ series.seasons
   const handleClose = () => setShow(false);
 
   async function handleShow(season_number) {
-    const temporada = await apiFilmes.get(`/tv/${series.id}/season/${season_number}`)
+    const temporada = await ApiFIlmes.get(`/tv/${series.id}/season/${season_number}`)
     setTemporada(temporada.data)
     setShow(true);
   }
@@ -129,10 +129,10 @@ export default Detalhes
 export async function getServerSideProps(context) {
   const id = context.params.id
 
-  const resultado = await apiFilmes.get(`/tv/${id}"?&language=pt-BR`)
+  const resultado = await ApiFIlmes.get(`/tv/${id}"?&language=pt-BR`)
   const series = resultado.data
 
-  const resultadoCreditosSeries = await apiFilmes.get(`/tv/${id}/credits`)
+  const resultadoCreditosSeries = await ApiFIlmes.get(`/tv/${id}/credits`)
   const creditosSeries = resultadoCreditosSeries.data.cast
 
 

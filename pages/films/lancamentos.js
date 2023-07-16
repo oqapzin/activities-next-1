@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-import apiFilmes from '../ApiConnect/axiosAPIFilms'
+import ApiFIlmes from '../../ApiConnect/axiosAPIFilms'
 import Pagina from '../../components/Pagina';
 
 const index = ({ filmes }) => {
@@ -17,7 +17,7 @@ export default index
 
 
 export async function getServerSideProps(context) {
-    const resultado = await apiFilmes.get('/movie/latest')
+    const resultado = await ApiFIlmes.get('/movie/latest')
     const filmes = resultado.data
 
     return {

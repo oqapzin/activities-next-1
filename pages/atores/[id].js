@@ -3,7 +3,7 @@ import Link from "next/link"
 import React from "react"
 import Pagina from "../../components/Pagina"
 import { dateFormatter } from "../../functions/functions";
-import apiFilmes from "../ApiConnect/axiosAPIFilms"
+import ApiFIlmes from "../../ApiConnect/axiosAPIFilms"
 import { Card, Col, Row } from "react-bootstrap";
 
 const Detalhes = ({ ator, atorImagens, atorFilmesSeries }) => {
@@ -78,13 +78,13 @@ export default Detalhes
 export async function getServerSideProps(context) {
     const id = context.params.id
 
-    const resultadoAtor = await apiFilmes.get(`/person/${id}?&language=pt-BR`)
+    const resultadoAtor = await ApiFIlmes.get(`/person/${id}?&language=pt-BR`)
     const ator = resultadoAtor.data
 
-    const resultadoImagensAtor = await apiFilmes.get(`/person/${id}/images`)
+    const resultadoImagensAtor = await ApiFIlmes.get(`/person/${id}/images`)
     const atorImagens = resultadoImagensAtor.data.profiles
 
-    const resultadoFilmesSeriesAtor = await apiFilmes.get(`/person/${id}/combined_credits`)
+    const resultadoFilmesSeriesAtor = await ApiFIlmes.get(`/person/${id}/combined_credits`)
     const atorFilmesSeries = resultadoFilmesSeriesAtor.data.cast
 
     return {

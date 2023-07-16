@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-import apiFilmes from '../ApiConnect/axiosAPIFilms'
+import ApiFIlmes from '../../ApiConnect/axiosAPIFilms'
 import Pagina from '../../components/Pagina';
 import ItemGaleria from '@/components/ItemGaleria';
 
@@ -55,7 +55,7 @@ export async function getServerSideProps(context) {
     const name = context.query.name
     const type = context.query.type
 
-    const resultado = await apiFilmes.get(type == "film" ? `/discover/movie?&with_genres=${id}&language=pt-BR` : `/discover/tv?&with_genres=${id}&language=pt-BR`)
+    const resultado = await ApiFIlmes.get(type == "film" ? `/discover/movie?&with_genres=${id}&language=pt-BR` : `/discover/tv?&with_genres=${id}&language=pt-BR`)
     const films = resultado.data.results
 
     return {

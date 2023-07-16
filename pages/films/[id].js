@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link"
 import React from "react"
 import Pagina from "../../components/Pagina"
-import apiFilmes from "../ApiConnect/axiosAPIFilms"
+import ApiFIlmes from "../../ApiConnect/axiosAPIFilms"
 import { Card, Col, Row } from "react-bootstrap";
 import { dateFormatter, numberFormatter, timeFormatter } from "../../functions/functions";
 
@@ -53,10 +53,10 @@ export default Detalhes
 export async function getServerSideProps(context) {
   const id = context.params.id
 
-  const resultado = await apiFilmes.get(`/movie/${id}?&language=pt-BR`)
+  const resultado = await ApiFIlmes.get(`/movie/${id}?&language=pt-BR`)
   const filme = resultado.data
 
-  const resultadoCreditosFilmes = await apiFilmes.get(`/movie/${id}/credits`)
+  const resultadoCreditosFilmes = await ApiFIlmes.get(`/movie/${id}/credits`)
   const creditosFilmes = resultadoCreditosFilmes.data.cast
 
   return {

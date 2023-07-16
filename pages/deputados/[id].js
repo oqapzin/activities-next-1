@@ -1,5 +1,5 @@
 import { Card, Container, Table } from "react-bootstrap"
-import axiosAPIDeputados from "../ApiConnect/axiosAPIDeputados"
+import ApiDeputados from "../../ApiConnect/axiosAPIDeputados"
 import Pagina from "@/components/Pagina"
 import { dateFormatter } from "../../functions/functions";
 import { BiBookAlt } from "react-icons/bi"
@@ -75,13 +75,13 @@ export default index
 export async function getServerSideProps(context) {
   const id = context.params.id
 
-  const resultadoDeputado = await axiosAPIDeputados.get(`/deputados/${id}`)
+  const resultadoDeputado = await ApiDeputados.get(`/deputados/${id}`)
   const Deputado = resultadoDeputado.data.dados
 
-  const resultadoGastosDeputado = await axiosAPIDeputados.get(`/deputados/${id}/despesas`)
+  const resultadoGastosDeputado = await ApiDeputados.get(`/deputados/${id}/despesas`)
   const GastosDeputado = resultadoGastosDeputado.data.dados
 
-  const resultadoprofissoesDeputado = await axiosAPIDeputados.get(`/deputados/${id}/profissoes`)
+  const resultadoprofissoesDeputado = await ApiDeputados.get(`/deputados/${id}/profissoes`)
   const profissoesDeputado = resultadoprofissoesDeputado.data.dados
 
   return {

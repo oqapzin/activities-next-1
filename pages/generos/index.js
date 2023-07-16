@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
-import apiFilmes from '../ApiConnect/axiosAPIFilms'
+import ApiFIlmes from '../../ApiConnect/axiosAPIFilms'
 import Pagina from '../../components/Pagina';
 import Link from 'next/link';
 
@@ -33,10 +33,10 @@ const index = (props) => {
 export default index
 
 export async function getServerSideProps(context) {
-    const resultadoFilms = await apiFilmes.get('/genre/movie/list?&language=pt-BR')
+    const resultadoFilms = await ApiFIlmes.get('/genre/movie/list?&language=pt-BR')
     const filmsGeneros = resultadoFilms.data.genres
 
-    const resultadoSeries = await apiFilmes.get('/genre/tv/list?&language=pt-BR')
+    const resultadoSeries = await ApiFIlmes.get('/genre/tv/list?&language=pt-BR')
     const seriesGeneros = resultadoSeries.data.genres
     return {
         props: { filmsGeneros, seriesGeneros },
