@@ -9,7 +9,7 @@ import { Card, Col, Row } from "react-bootstrap";
 const Detalhes = ({ ator, atorImagens, atorFilmesSeries }) => {
 
     return (
-        <Pagina titulo={ator.name} title={"Atores - Qaflix"} navBarItem="films">
+        <Pagina titulo={ator.name} title="Atores - Qaflix" navBarTitle="QAFLIX" navBarItem="films">
             <Row>
                 <Col md={3}>
                     <Card>
@@ -28,8 +28,8 @@ const Detalhes = ({ ator, atorImagens, atorFilmesSeries }) => {
             {!atorImagens == [] ?
                 <Row>
                     <h2 className="pt-5">Fotos</h2>
-                    {atorImagens.map(element => (
-                        <Col md={2}>
+                    {atorImagens.map((element,index) => (
+                        <Col md={2} key={index}>
                             <Card.Img variant="top" title={ator.name} src={(element.file_path == null) ? "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7888.jpg?w=2000" : `https://image.tmdb.org/t/p/w500${element.file_path}`} style={{ marginBottom: "20px" }}></Card.Img>
                         </Col>
                     ))}
@@ -41,10 +41,10 @@ const Detalhes = ({ ator, atorImagens, atorFilmesSeries }) => {
                 <>
                     <Row>
                         <h2 className="pt-5">Filmes que atuou</h2>
-                        {atorFilmesSeries.map(element => {
+                        {atorFilmesSeries.map((element,index)  => {
                             if (element.media_type == "movie") {
                                 return (
-                                    <Col md={2}>
+                                    <Col md={2} key={index}>
                                         <Link href={'/films/' + element.id}>
                                             <Card.Img variant="top" title={element.title} src={(element.poster_path == null) ? "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7888.jpg?w=2000" : `https://image.tmdb.org/t/p/w500${element.poster_path}`} style={{ marginBottom: "20px" }}></Card.Img>
                                         </Link>
@@ -55,10 +55,10 @@ const Detalhes = ({ ator, atorImagens, atorFilmesSeries }) => {
                     </Row>
                     <Row>
                         <h2 className="pt-5">Séries de TV que atuou</h2>
-                        {atorFilmesSeries.map(element => {
+                        {atorFilmesSeries.map((element,index)  => {
                             if (element.media_type == "tv") {
                                 return (
-                                    <Col md={2}>
+                                    <Col md={2} key={index}>
                                         <Link href={'/series/' + element.id}>
                                             <Card.Img variant="top" title={element.name} src={(element.poster_path == null) ? "https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7888.jpg?w=2000" : `https://image.tmdb.org/t/p/w500${element.poster_path}`} style={{ marginBottom: "20px" }}></Card.Img>
                                         </Link>

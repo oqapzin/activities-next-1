@@ -9,7 +9,7 @@ const index = ({ films, name, type }) => {
     return (
         <>
             {type == "film" ?
-                <Pagina titulo={name} title={"Qaflix"} navBarLink="/films" navBarItem="films">
+                <Pagina titulo={name} title="Qaflix" navBarTitle="QAFLIX" navBarLink="/films" navBarItem="films">
                     <ItemGaleria
                         arrayName={films}
                         photoName="backdrop_path"

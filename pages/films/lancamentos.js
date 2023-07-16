@@ -7,7 +7,7 @@ const index = ({ filmes }) => {
 
     return (
         <>
-            <Pagina titulo="Lançamentos (Sem dados na API)" title={"Qaflix"} navBarLink="/films" navBarItem="films">
+            <Pagina titulo="Lançamentos (Sem dados na API)" title="Qaflix" navBarTitle="QAFLIX" navBarLink="/films" navBarItem="films">
             </Pagina>
         </>
     )

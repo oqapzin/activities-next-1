@@ -7,7 +7,7 @@ import ItemGaleria from '@/components/ItemGaleria';
 const index = ({ atores }) => {
     return (
         <>
-            <Pagina titulo="Atores do momento" title="Qaflix">
+            <Pagina titulo="Atores do momento" navBarTitle="QAFLIX" title="Qaflix">
                 <ItemGaleria
                     arrayName={atores}
                     photoName="profile_path"

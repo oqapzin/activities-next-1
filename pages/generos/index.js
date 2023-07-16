@@ -8,7 +8,7 @@ const index = (props) => {
 
     return (
         <>
-            <Pagina titulo="Gêneros" title={"Qaflix"} navBarLink="/films" navBarItem="films">
+            <Pagina titulo="Gêneros" title="Qaflix" navBarTitle="QAFLIX" navBarLink="/films" navBarItem="films">
                 <h2 className="pt-5">Filmes</h2>
                 {props.filmsGeneros.map(item => (
                     <Link key={item.id} href={{
